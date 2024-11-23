@@ -4,18 +4,13 @@ import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-import Nav from "@/components/nav.component";
+import Nav from "@/components/nav/nav.component";
+import { Cairo } from 'next/font/google';
 
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
+const cairo = Cairo({
+  subsets: ['latin'],
+ weight:["400","500"]
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,7 +22,7 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
   if (!routing.locales.includes(locale as "ar" | "en")) {
@@ -39,10 +34,14 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={direction}>
-      <body className={` antialiased`} dir={direction}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Nav />
-          {children}
+      <body className={`antialiased ${cairo.className}`} dir={direction}>
+        <NextIntlClientProvider   locale={locale} messages={messages}>
+        <div className="flex flex-col h-screen">
+
+          <Nav lang={locale} dir={direction} />
+          <div className="flex-grow overflow-auto">
+              {children}
+            </div>        </div>
         </NextIntlClientProvider>
       </body>
     </html>
