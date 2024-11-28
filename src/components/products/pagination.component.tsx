@@ -25,20 +25,21 @@ export function PaginationDemo({
     <Pagination>
       <PaginationContent className=" w-full flex justify-between">
         <PaginationItem>
-          <PaginationPrevious
+          <PaginationNext
             href="#"
-            onClick={() => handlePageChange(currentPage - 1)}
+            onClick={() => handlePageChange(currentPage + 1)}
           />
         </PaginationItem>
+
         <PaginationItem>
           <button className=" text-primary border-primary border px-4 py-1 hover:bg-primary hover:text-white transition-all duration-300">
             Show All
           </button>
         </PaginationItem>
         <PaginationItem>
-          <PaginationNext
+          <PaginationPrevious
             href="#"
-            onClick={() => handlePageChange(currentPage + 1)}
+            onClick={() => handlePageChange(currentPage - 1)}
           />
         </PaginationItem>
       </PaginationContent>

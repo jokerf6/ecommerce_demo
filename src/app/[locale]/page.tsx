@@ -4,11 +4,12 @@ import Products from "@/components/products/index.component";
 
 export default function Home() {
   return (
-    <div className=" flex flex-col h-full gap-8 ">
+    <div className=" flex flex-col h-full gap-8 mb-[40px] ">
       <div className=" min-h-full h-full">
         <Banner />
       </div>
       <Category />
+      <Products />
       <Products />
     </div>
   );

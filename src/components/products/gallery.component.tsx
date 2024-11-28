@@ -12,7 +12,7 @@ import Image from "next/image";
 
 export default function Gallery({ images }: { images: string[] }) {
   return (
-    <Carousel className="w-full group">
+    <Carousel className="w-full group z-10">
       <CarouselPrevious className=" hidden group-hover:flex   absolute left-[20px] top-1/2 shadow-none border-none  -translate-y-1/2 z-[100]" />
 
       <CarouselContent>

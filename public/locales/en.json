@@ -1,7 +1,19 @@
 {
   "title": "Home",
   "contact": "Contact Us",
-  "en":"English",
-  "ar":"عربي",
-  "search":"Search item, category"
+  "en": "English",
+  "ar": "عربي",
+  "search": "Search item, category",
+  "branches": "Our Branches",
+  "contactUs": "Contact Us",
+  "CollectionKARA": "Collection KARA",
+  "aboutUs": "About KARA",
+  "importantLinks": "Important Links",
+  "commonQuestions": "Common Questions",
+  "replacementAndReturnPolicy": "Replacement and Return Policy",
+  "termsOfUse": "Terms of Use",
+  "privacyPolicy": "Privacy Policy",
+  "followUs": "Follow Us",
+  "aboutUsTitle": "Achieving Success Through Social Media Power",
+  "aboutUsDescription": "Within just three years, KARA managed to establish itself in the youth fashion world through its innovative designs, high-quality fabrics, and creative marketing strategies. These factors contributed to the opening of its first branches successfully, creating a great deal of interest and raising expectations in the fashion market, and attracting a growing number of customers as a result of the exceptional teamwork efforts. <br /> <br /> KARA continued to grow until two more branches were opened in different cities within a year. Therefore, KARA is now a prominent youth fashion brand that ultimately differs from any other brand."
 }

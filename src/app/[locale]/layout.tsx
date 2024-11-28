@@ -6,11 +6,11 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import Nav from "@/components/nav/nav.component";
 import { Cairo } from "next/font/google";
+import About from "@/components/footer/index.component";
 
 const cairo = Cairo({
   subsets: ["latin"],
   weight: ["400", "500"],
-  display: "swap",
 });
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +25,8 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  if (!routing.locales.includes(locale as "ar" | "en")) {
+  console.log(locale);
+  if (!routing.locales.includes(locale as Locales)) {
     notFound();
   }
 
@@ -36,9 +37,9 @@ export default async function RootLayout({
     <html lang={locale} dir={direction}>
       <body className={cairo.className + " antialiased"} dir={direction}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <div className={`flex flex-col h-screen `}>
+          <div className={`flex flex-col min-h-screen `}>
             <Nav lang={locale} dir={direction} />
-            <div className="flex-grow overflow-auto">{children}</div>{" "}
+            <div className="flex-grow overflow-auto">{children}</div> <About />
           </div>
         </NextIntlClientProvider>
       </body>
