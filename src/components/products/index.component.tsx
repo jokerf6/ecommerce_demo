@@ -3,8 +3,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ProductCard from "./card.component";
 import { PaginationDemo } from "./pagination.component";
+import { CategoryType } from "@/static/interface";
 
-export default function Products() {
+export default function Products(props: { category: CategoryType }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(4);
   const products = [
@@ -71,7 +72,7 @@ export default function Products() {
 
   return (
     <div className="  flex flex-col items-center justify-center w-full h-fit object-fill px-main ">
-      <h1 className="text-3xl font-light font-cairo">كولكشن بلوفر سٌترة </h1>
+      <h1 className="text-3xl font-light font-cairo">{props.category.name} </h1>
       <div className=" overflow-hidden  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 my-[32px]">
         {Array.from({ length: productsPerPage }).map((_, index) => (
           <ProductCard

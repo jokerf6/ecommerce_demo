@@ -19,7 +19,7 @@ export default function ProductCard({
         </div>
       </div>
       <div className="absolute top-10 right-0 shadow-md z-[20] bg-white p-1 rounded-md">
-        <IoHeart className=" text-red-500   z-[20] text-[32px]" />
+        <IoHeart className=" text-red-500   z-[20] text-[26px]" />
       </div>
 
       <Gallery images={product.images} />

@@ -1,3 +1,4 @@
+"use client";
 import {
   Link,
   NavigationMenuItem,
@@ -12,21 +13,14 @@ import { IoPersonOutline } from "react-icons/io5";
 import Locale from "./locale.component";
 import Search from "./search.component";
 import Logo from "../logo/index.component";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import CategoryLine from "./categories.component";
 export default function Nav({ dir, lang }: { dir: string; lang: string }) {
-  //  const t = useTranslations();
-
   return (
     <div className=" flex flex-col shadow-xl  sticky top-0 z-50  bg-white">
       <Locale dir={dir} lang={lang} />
       <NavigationMenu
         dir={dir as "ltr" | "rtl"}
-        className="flex  z-50 flex-row justify-between items-center w-full global-padding py-[30px] px-main"
+        className="flex  z-50 flex-row justify-between items-center w-full global-padding pt-[20px] pb-[10px] px-main"
       >
         <NavigationMenuList>
           <NavigationMenuItem>
@@ -48,92 +42,7 @@ export default function Nav({ dir, lang }: { dir: string; lang: string }) {
         dir={dir as "ltr" | "rtl"}
         className="xl:flex lg:flex hidden z-1   flex-row justify-center w-full py-[10px]"
       >
-        <NavigationMenuList className=" flex flex-row gap-4">
-          <NavigationMenuItem className="text-lg">
-            <TooltipProvider>
-              <Tooltip>
-                <div className="flex w-full">
-                  <TooltipTrigger>اكسسوارات</TooltipTrigger>
-                  <TooltipContent className=" shadow-md">
-                    <div className=" flex py-2 flex-col gap-2 w-full">
-                      <Link href="" className=" hover:underline">
-                        تيشرتات
-                      </Link>
-                    </div>
-                  </TooltipContent>
-                </div>
-              </Tooltip>
-            </TooltipProvider>
-          </NavigationMenuItem>
-
-          <NavigationMenuItem className="text-lg">
-            <TooltipProvider>
-              <Tooltip>
-                <div className="flex w-full">
-                  <TooltipTrigger>اكسسوارات</TooltipTrigger>
-                  <TooltipContent className=" shadow-md">
-                    <div className=" flex py-2 flex-col gap-2 w-full">
-                      <Link href="" className=" hover:underline">
-                        تيشرتات
-                      </Link>
-                    </div>
-                  </TooltipContent>
-                </div>
-              </Tooltip>
-            </TooltipProvider>
-          </NavigationMenuItem>
-
-          <NavigationMenuItem className="text-lg">
-            <TooltipProvider>
-              <Tooltip>
-                <div className="flex w-full">
-                  <TooltipTrigger>اكسسوارات</TooltipTrigger>
-                  <TooltipContent className=" shadow-md">
-                    <div className=" flex py-2 flex-col gap-2 w-full">
-                      <Link href="" className=" hover:underline">
-                        تيشرتات
-                      </Link>
-                    </div>
-                  </TooltipContent>
-                </div>
-              </Tooltip>
-            </TooltipProvider>
-          </NavigationMenuItem>
-
-          <NavigationMenuItem className="text-lg">
-            <TooltipProvider>
-              <Tooltip>
-                <div className="flex w-full">
-                  <TooltipTrigger>اكسسوارات</TooltipTrigger>
-                  <TooltipContent className=" shadow-md">
-                    <div className=" flex py-2 flex-col gap-2 w-full">
-                      <Link href="" className=" hover:underline">
-                        تيشرتات
-                      </Link>
-                    </div>
-                  </TooltipContent>
-                </div>
-              </Tooltip>
-            </TooltipProvider>
-          </NavigationMenuItem>
-
-          <NavigationMenuItem className="text-lg">
-            <TooltipProvider>
-              <Tooltip>
-                <div className="flex w-full">
-                  <TooltipTrigger>اكسسوارات</TooltipTrigger>
-                  <TooltipContent className=" shadow-md">
-                    <div className=" flex py-2 flex-col gap-2 w-full">
-                      <Link href="" className=" hover:underline">
-                        تيشرتات
-                      </Link>
-                    </div>
-                  </TooltipContent>
-                </div>
-              </Tooltip>
-            </TooltipProvider>
-          </NavigationMenuItem>
-        </NavigationMenuList>
+        <CategoryLine />
       </NavigationMenu>
     </div>
   );

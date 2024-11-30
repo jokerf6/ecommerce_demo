@@ -7,6 +7,8 @@ import { notFound } from "next/navigation";
 import Nav from "@/components/nav/nav.component";
 import { Cairo } from "next/font/google";
 import About from "@/components/footer/index.component";
+import React from "react";
+import { Provider } from "./provider";
 
 const cairo = Cairo({
   subsets: ["latin"],
@@ -33,14 +35,24 @@ export default async function RootLayout({
   const messages = await getMessages();
   const direction = locale === "ar" ? "rtl" : "ltr";
 
+  const className = cairo.className;
+
+  // Ensure children is serializable (plain object or React nodes)
+  const isValidChildren = React.isValidElement(children) ? children : null;
+
   return (
     <html lang={locale} dir={direction}>
-      <body className={cairo.className + " antialiased"} dir={direction}>
+      <body className={className + " antialiased"} dir={direction}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <div className={`flex flex-col min-h-screen `}>
-            <Nav lang={locale} dir={direction} />
-            <div className="flex-grow overflow-auto">{children}</div> <About />
-          </div>
+          <Provider>
+            <div className={`flex flex-col min-h-screen `}>
+              <Nav lang={locale} dir={direction} />
+              <div className="flex-grow overflow-auto">
+                {isValidChildren}
+              </div>{" "}
+              <About />
+            </div>
+          </Provider>
         </NextIntlClientProvider>
       </body>
     </html>

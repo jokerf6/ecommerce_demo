@@ -9,6 +9,44 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Category {
+  id         Int        @id @default(autoincrement())
+  nameAr     String
+  nameEn     String
+  image      String     @db.Text
+  isActive   Boolean    @default(false)
+  parentId   Int?
+  Parent     Category?  @relation("ParentChild", fields: [parentId], references: [id])
+  Children   Category[] @relation("ParentChild")
+  isFeatured Boolean    @default(false)
+
+  @@map("category")
+}
+
+model Banner {
+  id       Int     @id @default(autoincrement())
+  imageAr  String  @db.Text
+  imageEn  String  @db.Text
+  isActive Boolean @default(false)
+
+  @@map("banner")
+}
+
+model Product {
+  id           Int          @id @default(autoincrement())
+  nameAr       String
+  nameEn       String
+  price        Int
+  discount     Int          @default(0)
+  discountType discountType
+}
+
+enum discountType {
+  PERCENTAGE
+  AMOUNT
 }
