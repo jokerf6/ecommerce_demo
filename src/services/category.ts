@@ -1,9 +1,9 @@
+import { CategoryType } from "@/static/interface";
 import { CATEGORY } from "@/static/links";
 import requestService from "@/static/request";
-import { Category } from "@prisma/client";
 
 interface CategoryResponse {
-  data: Category[];
+  data: CategoryType[];
 }
 
 export async function GetAllCategories(
@@ -12,7 +12,7 @@ export async function GetAllCategories(
     string | number | boolean | Record<string, string | number | boolean> | null
   > = {},
   limit?: number
-): Promise<[] | Category[]> {
+): Promise<[] | CategoryType[]> {
   try {
     const response = await requestService.get(CATEGORY, undefined, undefined, {
       limit: limit | 6,

@@ -14,3 +14,10 @@ export interface CategoryType {
   name: string; // Assuming this is a required field
   Children?: CategoryType[]; // Optional property for nested categories
 }
+
+export interface BannerType {
+  id: number;
+  imageAr: string;
+  imageEn: string;
+  isActive: boolean;
+}

@@ -1,13 +1,13 @@
+import { BannerType } from "@/static/interface";
 import { BANNER } from "@/static/links";
 import requestService from "@/static/request";
-import { Banner } from "@prisma/client";
 
 // Define the expected response type
 interface BannerResponse {
-  data: Banner[];
+  data: BannerType[];
 }
 
-export async function GetAllBanners(): Promise<[] | Banner[]> {
+export async function GetAllBanners(): Promise<[] | BannerType[]> {
   try {
     const response = await requestService.get(BANNER, undefined, undefined, {
       filter: { isActive: true },
